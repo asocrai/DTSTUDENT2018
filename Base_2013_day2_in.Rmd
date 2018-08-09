@@ -13,13 +13,15 @@ output:
     toc_float: yes
     theme: yeti
     highlight: kate
-bibliography: oajournals.bib
-    
+bibliography: 
+- oajournals.bib
+- packages.bib  
 ---
 
 *****
 
 ```{r setup, include=FALSE, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE)
 # Load packages used in this exercise
 library(tidyverse)
 library(rmarkdown)
@@ -109,14 +111,8 @@ ggplot(data=doaj, aes(doaj$PubCountry, fill=doaj$PubCountry)) +
 
 Finally, our research group has determined that following is true when it comes to reputable open access journals.
 
-
-||>
-Turn this into a code chunk
-{r equations, child = "equations-child.Rmd"}
-<||
-
-
-
+```{r equations, child = "equations-child.Rmd"}
+```
 ### Researcher Information
 
 YourName, Principal Investigator, YourInstitution
@@ -261,7 +257,7 @@ The Data Management Specialist assigned to the project as an in-kind contributio
 
 #### Complete dataset `doaj_seal.csv` {#annex-table}
 
-*This data table was compiled using the DT package by @Xie_2018 Xie (2018)*
+*This data table was compiled using the DT package by Xie (2018) [@R-DT]*
 ```{r data-table}
 doaj_seal %>%
   datatable(rownames = FALSE, 
@@ -277,7 +273,7 @@ doaj_seal %>%
 
 #### Principal Investigator's BioSketch
 
-This is auto-populated from your ORCID profile using the  rorcid package. (cite the package).
+This is auto-populated from your ORCID profile using the  rorcid package. @R-rorcid
 
 ||> insert code from insert_orcid.R <||
 
