@@ -5,9 +5,15 @@ author: "Ashok Rai, CIMMYT"
 date: "`r format(Sys.Date(), '%A, %B %d, %Y')`"
 output:
   html_document:
-    toc: true
-    toc_float: true
-    section_numbering: true
+    code_folding: hide
+    css: custom.css
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+    theme: yeti
+    highlight: kate
+    
 ---
 
 *****
@@ -32,13 +38,13 @@ doaj_seal <- read_csv("data/DOAJ_Seal.csv")
 
 ```
 
-# 1. Administrative Data
+# Administrative Data
 
-## 1.1 ID
+## ID
 
 Not Applicable
 
-## 1.2 Funder
+## Funder
 
 This research is being submitted for funding to the [J. Bohannon Foundation](http://www.johnbohannon.org/).
 
@@ -255,11 +261,7 @@ The Data Management Specialist assigned to the project as an in-kind contributio
 #### Complete dataset `doaj_seal.csv` {#annex-table}
 
 *This data table was compiled using the DT package by Xie (2018)*
-
-||>
-Turn this into a code chunk
-
-`{r data-table}
+```{r data-table}
 doaj_seal %>%
   datatable(rownames = FALSE, 
             colnames = c("Title", "Publisher", "Country", "Fees", "Waivers", "Identifiers", "Start Year", "Language(s)", "Review  Process", "Plagiarism check", "Time to Press", "License", "Author owns Copyright", "DOAJ Seal"),
@@ -268,9 +270,8 @@ doaj_seal %>%
             filter = list(position = "bottom"),
             extensions = 'Buttons', options = list(dom = 'Bfrtip',
             buttons = c('colvis', 'csv', 'pdf'))
-  )`
-
-<||
+  )
+```
 
 
 #### Principal Investigator's BioSketch

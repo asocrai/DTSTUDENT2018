@@ -63,7 +63,6 @@ knitr::kable(head(doaj_seal, 4), caption = 'A Table of the first 4 rows of the D
 # Results
 
 ```{r plot_license, echo= FALSE, fig.width=10,fig.height=11}
-install.packages("TexLive")
 doaj <- read.csv(file = "data/DOAJ_Seal.csv", header = TRUE)
 ggplot(data=doaj, aes(doaj$JnlLicense, fill=doaj$JnlLicense)) + stat_count() + labs(x="License", y="Count", title = "DOAJ Seal by Country") 
 ```
