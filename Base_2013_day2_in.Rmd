@@ -1,18 +1,23 @@
 ---
-title: "Data Management Plan for the Study 'Do Reputable Open Access Journals Require Open Data Sharing'?"
-author: "YourName, YourInstitution"
+title: Data Management Plan for the Study 'Do Reputable Open Access Journals Require
+  Open Data Sharing'?
+author: "Ashok Rai, CIMMYT"
 date: "`r format(Sys.Date(), '%A, %B %d, %Y')`"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    section_numbering: true
 ---
 
 *****
 
 ```{r setup, include=FALSE, echo = FALSE}
-
 # Load packages used in this exercise
 library(tidyverse)
 library(rmarkdown)
 library(DT)
+library(tinytex)
 ```
 
 ```{r global_options, include=FALSE}
@@ -27,29 +32,47 @@ doaj_seal <- read_csv("data/DOAJ_Seal.csv")
 
 ```
 
-# Administrative Data
+# 1. Administrative Data
 
-## ID
+## 1.1 ID
 
 Not Applicable
 
-## Funder
+## 1.2 Funder
 
-This research is being submitted for funding to the J. Bohannon Foundation http://www.johnbohannon.org/.
+This research is being submitted for funding to the [J. Bohannon Foundation](http://www.johnbohannon.org/).
 
 ## Grant Reference Number
 
 Not Applicable (Proposal in preparation)
 
 ## Project Name
+1. 'Data Sharing Policy' (Boolean)
+    a. Yes
+    b. No
+    
+2. 'Data Citation Policy' (Factor)
+    + No mention
+    + Implied
+    + Mentioned
+    + Explicitly encouraged
+    + Requried, but not explicitly tried to editorial
+    
+3. 'Data Citation Policy' (Factor)
+    a. No mention
+    b. Implied
+    c. Mentioned
+    d. Explicitly encouraged
+    e. Requried, but not explicitly tried to editorial
+          
 
-Do Reputable Open Access Journals Require Open Data Sharing? 
+***Do Reputable Open Access Journals Require Open Data Sharing?***
 
 ### Project Description
 
 This study analyzes the submission requirements of the most reputable open access journals to determine the prevalence and characteristics of data sharing policies. This question is an important one for 21st century authors and readers because open data sharing is seen as a key component of open and more trusted scientific record.
 
-According to the Research Data Alliance (RDA) Data Policy Standardisation and Implementation group https://www.rd-alliance.org/groups/data-policy-standardisation-and-implementation:
+According to the Research Data Alliance (RDA) [Data Policy Standardisation and Implementation group](https://www.rd-alliance.org/groups/data-policy-standardisation-and-implementation):
 
 "the prevalence of research data policies from institutions and research funders is increasing, so publishers and editors are paying more attention to  standardisation and the wider adoption of data sharing policies."
 
@@ -59,7 +82,7 @@ Our investigation builds on the recent work of Castro et al (2017) who assessed 
 
 In this study, we will include only the most reputable open access journals in our assessment  of journal sharing policies, regardless of language. We will analyze all journals that have attained the Seal of Approval from the Directory of Open Access Journals, DOAJ http://doaj.org (shown below). We will apply the same coding framework devised by Castro et al (2017) to the DOAJ Seal journals. We contend that a more rigorously screened population of open access journals, regardless of language, will yield a more accurate and reproducible set of findings than those published from Castro et al (2017)
 
-||> Insert DOAJ Seal of Approval images/doaj_seal_logo.png <||
+![](images/doaj_seal_logo.png)
 
 DOAJ Seal journals are considered the most reputable because they: 
 
@@ -118,10 +141,10 @@ This study relies on the DOAJ Journal Metadata available as a csv file download 
 
 This data will be read into RStudio, using the tidyverse package (need to cite Tidyverse somehow) to filter it for those journals awarded the DOAJ Seal, and to remove unneeded columns containing the web addresses for journal policies around plagiarism, submission fees, and other urls not related to this study.
 
-The filtered version of the data set will be exported as a new file named doaj_seal.csv for importing into analytical software.
+The filtered version of the data set will be exported as a new file named `doaj_seal.csv` for importing into analytical software.
 
 
-A sample of the doaj_seal.csv data set is shown below.  The complete data set is available in searchable and  broweseable format in the  [Annex](#annex-table) near the end of this document.
+A sample of the `doaj_seal.csv` data set is shown below.  The complete data set is available in searchable and  broweseable format in the  [Annex](#annex-table) near the end of this document.
 
 ```{r}
 knitr::kable(head(doaj_seal, 4), caption = 'A Table of the first 4 rows of the DOAJ Seal data.')
@@ -131,7 +154,7 @@ knitr::kable(head(doaj_seal, 4), caption = 'A Table of the first 4 rows of the D
 
 ## Data being collected
 
-The doaj_seal.csv data set currently includes over 1000 reputable open access journals that we will investigate in this study. The data set will be copied and enhanced with additional columns, resulting in the processed data set, doaj_seal_enhanced.csv. The following columns will be added to doaj_seal.csv, in conformance with the Coding Framework of Castro et al (2017).
+The `doaj_seal.csv` data set currently includes over 1000 reputable open access journals that we will investigate in this study. The data set will be copied and enhanced with additional columns, resulting in the processed data set, `doaj_seal_enhanced.csv`. The following columns will be added to `doaj_seal.csv`, in conformance with the Coding Framework of Castro et al (2017).
 
 'Data Policy'  (Boolean)
 Yes
