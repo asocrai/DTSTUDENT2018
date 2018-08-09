@@ -99,7 +99,7 @@ DOAJ Seal journals are considered the most reputable because they:
 
 Moreover, the DOAJ Seal journals do include over 200 non-English language journals that merit analysis in this study. Excluding these from the analysis represents cultural bias that undermines reliable research. The following plot of DOAJ Seal Journals by Country indicates the problem.
 
-```{r plot_country, echo= FALSE, fig.width=10,fig.height=11}
+```{r plot_country, echo= TRUE, fig.width=10,fig.height=11}
 
 doaj <- read_csv(file = "data/DOAJ_Seal.csv")
 
